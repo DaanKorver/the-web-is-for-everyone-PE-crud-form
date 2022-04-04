@@ -1,8 +1,13 @@
 var submitBtn = document.getElementById('submit')
+var inputs = document.getElementsByTagName('input')
+
 
 submitBtn.onclick = onSubmit
 
 function onSubmit(e) {
+
+  var author = prepareForInsert(getFormValues())
+  console.log(author);
 
   if(window.XMLHttpRequest) {
     var xhr = new XMLHttpRequest()
@@ -13,12 +18,29 @@ function onSubmit(e) {
       }
     }
 
-    xhr.open('GET', 'https://scrollbook.api.fdnd.nl/v1/author')
-    xhr.send()
-
+    xhr.open('POST', 'https://scrollbook.api.fdnd.nl/v1/author')
+    xhr.send(author)
 
     e.preventDefault()
   }
 
-  
+}
+
+function getFormValues() {
+  var formValues = []
+
+  for (var index in inputs) {
+    if(inputs[index].type !== 'text') break
+    formValues.push(inputs[index].value)
+  }
+  return formValues
+}
+
+function prepareForInsert(values) {
+  return JSON.stringify({
+    name: values[0],
+    surname: values[1],
+    initials: values[2],
+    date_of_birth: values[3].split('-').reverse().join('-')
+  })
 }
