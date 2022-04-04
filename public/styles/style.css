@@ -1,4 +1,5 @@
-body {
+/* Prachtige code van Fabienne ================= */
+/* body {
   background-color: hotpink;
 }
 
@@ -16,4 +17,126 @@ h1 {
 
 input {
   background-color: rgb(255, 219, 224);
+} */
+/* ============================================= */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #282828;
+}
+
+form {
+  margin: 0 auto;
+  width: 20em;
+}
+
+fieldset {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  padding: 0;
+}
+
+legend {
+  display: none;
+}
+
+h2 {
+  display: none;
+}
+
+p {
+  color: #777;
+}
+
+input {
+  width: 100%;
+  padding: 1em 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+.input {
+  margin: 1em 0;
+  position: relative;
+}
+
+.input span {
+  content: '';
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #ff6347;
+  bottom: 0;
+  transition: 300ms ease-in-out;
+}
+
+input[type="text"] {
+  font-size: 1rem;
+  padding-bottom: .5em;
+}
+
+input[type="text"]:focus {
+  outline: none;
+}
+
+input[type="text"]::placeholder {
+  display: none;
+  opacity: 0;
+}
+
+input[type="text"]:focus ~ span {
+  width: 100%;
+}
+
+input[type="text"]:focus + label,
+input[type="text"]:not(:placeholder-shown) + label {
+  font-size: .7rem;
+  top: -.3em;
+  transform: translateY(0);
+}
+
+input[type="text"]:focus + label {
+  color: #ff6347;
+}
+
+label {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 150ms ease-out;
+  color: #777;
+}
+
+input[type="submit"] {
+  padding: 1.5em 0;
+  background-color: #ff6347;
+  color: #fff;
+  border: none;
+  border-radius: .5em;
+}
+
+hr {
+  display: none;
+}
+
+@media screen and (min-width:0\0) and (min-resolution: 72dpi) {
+  label {
+    font-size: 11px;
+    top: -.3em;
+    transform: translateY(0);
+  }
+}
+
+@media \0screen {
+  label {
+    font-size: 11px;
+    top: -.3em;
+    transform: translateY(0);
+  }
 }

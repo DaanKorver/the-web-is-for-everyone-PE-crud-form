@@ -1,18 +1,35 @@
 <%- include('./partials/head.ejs') %>
-<form action="">
-  <h1>Add Author</h1>
+<form action="/add">
+  <h1>Manage Scrollbook authors</h1>
+  <p>Add author to the scrollbook API using this form!</p>
   <fieldset>
-    <legend>Add</legend>
+    <legend>Add author</legend>
     <h2>Name</h2>
-    <input type="text" name="name" placeholder="name">
+    <div class="input">
+      <input type="text" name="name" id="name" placeholder="Name" required>
+      <label for="name">Name</label>
+      <span></span>
+    </div>
     <h2>Surname</h2>
-    <input type="text" name="surname" placeholder="surname">
+    <div class="input">
+      <input type="text" name="surname" id="surname" placeholder="Surname" required>
+      <label for="surname">Surname</label>
+      <span></span>
+   </div>
     <h2>Initials</h2>
-    <input type="text" name="initials" placeholder="initials">
+    <div class="input">
+      <input type="text" name="initials" id="initials" placeholder="Initials" required>
+      <label for="initials">Initials</label>
+      <span></span>
+    </div>
     <h2>Date of Birth</h2>
-    <input type="text" name="date-of-birth" placeholder="Date of Birth">
+    <div class="input">
+      <input type="text" name="date-of-birth" id="date-of-birth" placeholder="Date of Birth" required maxlength="10">
+      <label for="date-of-birth">Date of Birth (DD-MM-YYYY)</label>
+      <span></span>
+    </div>
     <hr>
-    <input type="submit" name="submit" value="Versturen">  
+    <input type="submit" name="submit" id="submit" value="Versturen">  
   </fieldset>
 </form>
 <%- include('./partials/foot.ejs') %>

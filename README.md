@@ -1,7 +1,7 @@
-> _Fork_ deze leertaak en ga aan de slag. Onderstaande outline ga je gedurende deze taak in jouw eigen GitHub omgeving uitwerken. De instructie vind je in: [docs/INSTRUCTIONS.md](docs/INSTRUCTIONS.md)
-
-# Titel
+# Scrollbook Author CRUD
 <!-- Geef je project een titel en schrijf in één zin wat het is -->
+Voor deze deeltaak heb ik progressive enhancement toegepast om nou is echt mee te maken hoe het is om een
+app te maken die _**ECHT**_ op iedere device & browser werkt.
 
 ## Wireflow
 <!-- Toon hier de Wirefllow -->
