@@ -1,3 +1,19 @@
 body {
-  background-color: #ddd;
+  background-color: hotpink;
+}
+
+form {
+  background-color: lightcoral;
+}
+
+legend, h2{
+  color: white;
+}
+
+h1 {
+  color: pink
+}
+
+input {
+  background-color: rgb(255, 219, 224);
 }
