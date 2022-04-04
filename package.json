@@ -1,0 +1,29 @@
+{
+  "name": "the-web-is-for-everyone-pe-crud-form",
+  "version": "1.0.0",
+  "description": "Progressive enchancement for CRUD form",
+  "main": "app.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaanKorver/the-web-is-for-everyone-PE-crud-form.git"
+  },
+  "author": "Daan Korver",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DaanKorver/the-web-is-for-everyone-PE-crud-form/issues"
+  },
+  "homepage": "https://github.com/DaanKorver/the-web-is-for-everyone-PE-crud-form#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
