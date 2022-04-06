@@ -6,23 +6,40 @@ submitBtn.onclick = onSubmit
 
 function onSubmit(e) {
 
-  var author = prepareForInsert(getFormValues())
-  console.log(author);
-
-  if(window.XMLHttpRequest) {
-    var xhr = new XMLHttpRequest()
-    xhr.onreadystatechange = function(e) {
-      if(xhr.status === 200 && xhr.readyState === 4) {
-        var res = JSON.parse(xhr.responseText)
-        console.log(res.data);
+  if(!window.fetch) {
+    var author = prepareForInsert(getFormValues())
+    var options = {
+      method: 'POST',
+      body: author,
+      headers: {
+        'Content-Type': 'application/json'
       }
     }
-
-    xhr.open('POST', 'https://scrollbook.api.fdnd.nl/v1/author')
-    xhr.send(author)
-
+    fetch('https://scrollbook.api.fdnd.nl/v1/author', options)
+    .then(function(res) {
+      return res.json()
+    })
+    .then(function(data) {
+      console.log(data);
+    })
     e.preventDefault()
   }
+
+  // if(window.XMLHttpRequest) {
+  //   var author = prepareForInsert(getFormValues())
+  //   var xhr = new XMLHttpRequest()
+  //   xhr.onreadystatechange = function(e) {
+  //     if(xhr.status === 200 && xhr.readyState === 4) {
+  //       var res = JSON.parse(xhr.responseText)
+  //       console.log(res.data);
+  //     }
+  //   }
+
+  //   xhr.open('POST', 'https://scrollbook.api.fdnd.nl/v1/author')
+  //   xhr.send(author)
+
+  //   e.preventDefault()
+  // }
 
 }
 

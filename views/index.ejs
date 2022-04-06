@@ -1,5 +1,5 @@
 <%- include('./partials/head.ejs') %>
-<form action="/add">
+<form action="/" method="POST">
   <h1>Manage Scrollbook authors</h1>
   <p>Add author to the scrollbook API using this form!</p>
   <fieldset>
@@ -24,12 +24,19 @@
     </div>
     <h2>Date of Birth</h2>
     <div class="input">
-      <input type="text" name="date-of-birth" id="date-of-birth" placeholder="Date of Birth" required maxlength="10">
+      <input type="text" name="date_of_birth" id="date-of-birth" placeholder="Date of Birth" required maxlength="10">
       <label for="date-of-birth">Date of Birth (DD-MM-YYYY)</label>
       <span></span>
     </div>
     <hr>
     <input type="submit" name="submit" id="submit" value="Versturen">  
   </fieldset>
+  <% if(typeof errors !== 'undefined') { %> 
+    <ul>
+      <% errors.forEach(error=>{ %> 
+        <li><%= error %></li>
+      <% }) %>
+    </ul>
+  <% } %> 
 </form>
 <%- include('./partials/foot.ejs') %>

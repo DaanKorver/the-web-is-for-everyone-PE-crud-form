@@ -125,6 +125,12 @@ hr {
   display: none;
 }
 
+form > ul {
+  padding: 0;
+  padding-left: 1em;
+  color: crimson;
+}
+
 @media screen and (min-width:0\0) and (min-resolution: 72dpi) {
   label {
     font-size: 11px;
