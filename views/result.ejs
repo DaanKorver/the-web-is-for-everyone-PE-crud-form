@@ -1,0 +1,20 @@
+<%- include('./partials/head.ejs') %>
+<h1>Results</h1>
+<% if(typeof errors !== 'undefined') { %> 
+  <ul>
+    <% errors.forEach(error=>{ %> 
+      <li><%= error %></li>
+    <% }) %>
+  </ul>
+<% } %> 
+<% if(typeof data !== 'undefined') { %>
+  <p>You've just inserted a new Author</p> 
+  <ul>
+    <li>Name: <%= data.name %></li>
+    <li>Surname: <%= data.surname %></li>
+    <li>Initials: <%= data.initials %></li>
+    <li>Date of Birth: <%= data.date_of_birth %></li>
+  </ul>
+<% } %> 
+<a href="/">Go Back</a>
+<%- include('./partials/foot.ejs') %>

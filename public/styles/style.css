@@ -131,6 +131,17 @@ form > ul {
   color: crimson;
 }
 
+a {
+  display: block;
+  padding: 1em 1em;
+  background-color: #ff6347;
+  color: #fff;
+  border: none;
+  border-radius: .5em;
+  text-align: center;
+  text-decoration: none;
+}
+
 @media screen and (min-width:0\0) and (min-resolution: 72dpi) {
   label {
     font-size: 11px;

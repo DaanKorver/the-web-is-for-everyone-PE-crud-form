@@ -5,20 +5,23 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 router
 
 .get('/', (req, res)=>{
-  const errorKeys = Object.keys(req.query).filter(key => key.includes('err'))
-  const errors = errorKeys.map(key => req.query[key])
   res.render('index', {
     title: 'Scrollbook CRUD | Author',
-    errors
   })
 })
 
 .post('/', (req, res)=>{
   const {name, surname, initials, date_of_birth} = req.body
+  
+  // Checking for any errors
   let errors = []
   if(!verifyDate(date_of_birth)) errors.push('Date of Birth not valid')
+  const hasEmptyValues = checkNotEmpty([name, surname, initials, date_of_birth])
+  if(hasEmptyValues) errors.push('Please fill out all fields')
+
+  //Proceeding if there are not errors
   if(errors.length <= 0) {
-    const author = JSON.stringify({name, surname, initials, date_of_birth})
+    const author = JSON.stringify({name, surname, initials, date_of_birth: reverseDate(date_of_birth)})
     const options = {
       method: 'POST',
       body: author,
@@ -27,20 +30,26 @@ router
       }
     }
     fetch('https://scrollbook.api.fdnd.nl/v1/author', options)
-    .then(res => res.json())
+    .then(response => response.json())
     .then(data => {
-      console.log('data?!', data);
-      res.redirect('/?status=success')
+      res.render('result', {
+        title: 'Scrollbook CRUD | Author',
+        data: data.data
+      })
     })
     .catch(err => {
-      console.log(err);
       errors.push('Oops, something went wrong!')
-      const query = errors.reduce((prev, curr, index) => prev+= `&err${index}=${curr}`)
-      res.redirect(`/?status=error&err0=${query}`)
+      errors.push(err)
+      res.render('result', {
+        title: 'Scrollbook CRUD | Author',
+        errors: errors
+      })
     })
   } else {
-    const query = errors.reduce((prev, curr, index) => prev+= `&err${index}=${curr}`)
-    res.redirect(`/?status=error&err0=${query}`)
+    res.render('result', {
+      title: 'Scrollbook CRUD | Author',
+      errors: errors
+    })
   }
 })
 
@@ -49,4 +58,12 @@ module.exports = router
 function verifyDate(date) {
   const regex = new RegExp(/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/)
   return regex.test(date.split('-').reverse().join('-'))
+}
+
+function reverseDate(date) {
+  return date.split('-').reverse().join('-')
+}
+
+function checkNotEmpty(strings) {
+  return strings.includes('')
 }
