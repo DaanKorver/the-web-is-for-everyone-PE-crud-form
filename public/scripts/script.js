@@ -1,12 +1,13 @@
 var submitBtn = document.getElementById('submit')
 var inputs = document.getElementsByTagName('input')
+var form = document.getElementsByTagName('form')[0]
 
 
 submitBtn.onclick = onSubmit
 
 function onSubmit(e) {
-
-  if(!window.fetch) {
+  if(!form.checkValidity()) return
+  if(window.fetch) {
     var author = prepareForInsert(getFormValues())
     var options = {
       method: 'POST',
