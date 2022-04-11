@@ -3,6 +3,8 @@
 Voor deze deeltaak heb ik progressive enhancement toegepast om nou is echt mee te maken hoe het is om een
 app te maken die _**ECHT**_ op iedere device & browser werkt.
 
+[🦤 Onderzoek](https://github.com/DaanKorver/the-web-is-for-everyone-PE-crud-form/wiki/%F0%9F%A6%A4-Onderzoek)
+
 ## Wireflow
 <!-- Toon hier de Wirefllow -->
 <img src="https://github.com/DaanKorver/the-web-is-for-everyone-PE-crud-form/blob/main/docs/wireflow.jpg"  width=500 />
